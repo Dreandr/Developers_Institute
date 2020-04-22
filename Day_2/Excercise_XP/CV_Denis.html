@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My CV</title>
+	<style type="text/css">
+		body{
+			margin: 1em 10em 1em 10em;
+			background: url(https://www.elsetge.cat/myimg/f/211-2114311_cv-background-images-background-images-for-cv.jpg)  no-repeat center center fixed;
+			background-size: cover;
+
+		}
+		h1, h2{
+			text-align: center;
+			position: static;
+			color: rgba(163,12,132,0.8);
+		}
+		div {
+			border: dashed lightgrey;
+		}
+		i:hover{
+			color: blue;
+		}
+		.row {
+  			display: flex;
+		}
+		.col {
+		   	flex: 1; 		  
+		  	padding: 1em;
+		  	border: dashed lightgrey;
+		}
+		#sputnik:hover:after{
+    		content:': a Moscow-based online radio station covering international news. Fair warning: state-sponsored.';
+		}
+		#sputnik_ne:hover:after{
+    		content:' In this role, I wrote brief news articles for live show, suggested questions for interviews and cut soundbites.';
+		}
+		#sputnik_mn:hover:after{
+    		content:' As such, I was primarily editing the output of News Editors and compiling the daily rundown.';
+		}
+		#i24:hover:after{
+    		content:': a Tel Aviv based news channel covering Israeli and international news.';
+		}
+		#i24_ed:hover:after{
+    		content:' On this position, I write news and feature articles for the website and occasionally take over the English-language social media handles.';
+		}
+		#MSLU:hover:after{
+    		content:': a Moscow-based university that ranks within top 40 on the national rating.';
+		}
+		#MSLU_dip:hover:after{
+    		content:' As part of this five-year degree, I studied linguistics, translation, interpreting and editing.';
+		}
+		#Warw:hover:after{
+    		content:': a university in West Midlands, UK, that ranked 54th in the 2019 QS World University Rankings.';
+		}
+		#Warw_MA:hover:after{
+    		content:' During this one-year course, I focused my research on US foreign and security policy and the Middle East.';
+		}
+	</style>
+	<script src="https://kit.fontawesome.com/265f1cf528.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<section>
+		<h1>CV: Denis Khoronenko</h1>
+		<h2>A pleasure to meet you!</h2>
+		<p><img src="Denis_pic.jpg" style="float: left; margin: 0 15px" height="150px" width="150px">Greetings! My name is Denis Khoronenko, I am a 27-year-old journalist and Web Developer based in Tel Aviv, Israel. I have a lot of newsroom experience as a writer and editor, focusing primarily on international news, especially US politics or Middle East security. I am also an avid fan of all things high-tech, seeking to bring data analysis and interactivity to the stories I tell, as well as doing some coding as a hobby.</p><br><br><br><br>
+	</section>
+	<section>
+		<h2 align="center">My work experience</h2>
+		<p align="center">In this and the next section, hover the cursor over what you'd like to learn more about!</p>
+		<div class="row">
+			<div class="col">
+				<h3 id="sputnik">Radio Sputnik International</h3>
+				<p id="sputnik_ne">News Editor: 2014 - 2016.</p>
+				<p id="sputnik_mn">Managing News Editor: 2016 - 2017.</p>
+			</div>
+			<div class="col">
+				<h3 id="i24">i24NEWS TV Channel</h3>
+				<p id="i24_ed">Digital Content Editor: 2019 - now.</p>
+		</div>
+		</div>
+	</section>
+	<section>
+		<h2>My education</h2>
+		<div class="row">
+		<div class="col">
+				<h3 id="MSLU">Moscow State Linguistical University</h3>
+				<p id="MSLU_dip">Diploma Specialista: Linguist, Translator (English, Danish) -- Honors, 2014.</p>
+			</div>
+			<div class="col">
+				<h3 id = "Warw">Warwick University, Politics and International Studies Department</h3>
+				<p id = "Warw_MA">Master of Arts: International Relations -- 2:1, 2019.</p>
+			</div>
+		</div>
+	</section>
+	<section>
+		<h2>My key skills</h2>
+		<label for="writing">Writing (English):</label>
+		<meter id="writing" value="10" min="0" max="10">10 out of 10</meter><br>
+		<label for="editing">Editing (English):</label>
+		<meter id="editing" value="10" min="0" max="10">10 out of 10</meter><br>
+		<label for="OSR">Open-Source Research:</label>
+		<meter id="OSR" value="8" min="0" max="10">8 out of 10</meter><br>
+		<label for="DAV">Data Analysis and Visualization:</label>
+		<meter id="DAV" value="6" min="0" max="10">6 out of 10</meter><br>
+		<label for="Python">Python:</label>
+		<meter id="Python" value="6" min="0" max="10">6 out of 10</meter><br>
+		<label for="MT">Multi-Tasking:</label>
+		<meter id="MT" value="10" min="0" max="10">10 out of 10</meter><br>
+	</section>
+	<section>
+		<h2>Let's get in touch!</h2>
+		<p>Please feel free to reach out to me on my...</p>
+		<table align="center">
+			<tr>
+				<th width="200px"><a href="https://www.facebook.com/profile.php?id=100004111501817"><i class="fab fa-facebook fa-10x"></i></a></th>
+				<th width="200px"><a href="https://www.linkedin.com/in/denis-khoronenko-b1947891/"><i class="fab fa-linkedin-in fa-10x"></i></a></th>
+			</tr>
+		</table>
+		<p>...or use this form to drop me a line -- please make sure to fill all the fields marked with an asterisk.</p>
+		<form>
+		  	<label for="contact_name">What is your name?*</label>
+		  	<input type="text" id="contact_name" width="50" name="contact_name" required><br><br>
+		  	<label for="contact_company">What company are you affiliated with?</label>
+		  	<input type="text" id="contact_company" width="50" name="contact_company"><br><br>
+		  	<label for="email">What email can I reach you at?*</label>
+		  	<input type="email" id="email" name="email" width="50" required><br>
+		  	<p>And, finally, how can I help you?*</p>
+		  	<textarea id="message" name="message" style="height:200px;width:400px" required></textarea>><br><br>
+		  	<input type="submit" value="Submit">
+		</form>
+	</section>
+
+</body>
+</html>
