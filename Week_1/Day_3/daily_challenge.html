@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daily Challenge: Animations</title>
+	<style type="text/css">
+		body > div{
+            width:483px;
+            height:298px;
+            text-align: center;
+            background:#676470;
+            transition:all 0.3s ease;
+            display: inline-grid;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px
+			}
+		p {
+		padding-top: 5%;
+		font-size: 340%;
+		color: black;	
+		}
+		.fade_in{
+        opacity:0.5;
+
+		}
+		.fade_in:hover{
+        opacity:1;
+		}
+		#fade_in:hover:after{
+			content: ' And now you can!'
+		}
+		.color:hover{
+        background:red;
+    	}
+    	.grow:hover{
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+        background-image: url(https://cdn.pixabay.com/photo/2012/04/12/11/19/alice-29552_1280.png);
+        background-size: cover;
+		}
+		.disappear:hover{
+			color: transparent;
+		}
+		.shrink:hover{
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+        background-image: url(https://i.quotev.com/img/q/u/13/09/24/alice_drinking_potions.jpg);
+        background-size: cover;
+    	}
+    	.rotate:hover{
+        -webkit-transform: rotateZ(-360deg);
+        -ms-transform: rotateZ(-360deg);
+        transform: rotateZ(-360deg);
+		}
+		.circle:hover{
+        border-radius:80%;
+		}
+		.threed:hover{
+        box-shadow:
+                1px 1px #53a7ea,
+                2px 2px #53a7ea,
+                3px 3px #53a7ea;
+        -webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
+		}
+		@-webkit-keyframes swing
+		{
+		    15%
+		    {
+		        -webkit-transform: translateX(10px);
+		        transform: translateX(10px);
+		    }
+		    30%
+		    {
+		        -webkit-transform: translateY(-5px);
+		       transform: translateY(-5px);
+		    } 
+		    50%
+		    {
+		        -webkit-transform: translateX(-15px);
+		        transform: translateX(-15px);
+		    }
+		    65%
+		    {
+		        -webkit-transform: translateY(35px);
+		        transform: translateY(35px);
+		    }
+		    80%
+		    {
+		        -webkit-transform: translateX(30px);
+		        transform: translateX(30px);
+		    }
+		    100%
+		    {
+		        -webkit-transform: translateX(0);
+		        transform: translateX(0);
+		        -webkit-transform: translateY(0);
+		        transform: translateY(0);
+		    }
+		}
+		@keyframes swing
+		{
+ 			15%
+		    {
+		        -webkit-transform: translateX(10px);
+		        transform: translateX(10px);
+		    }
+		    30%
+		    {
+		        -webkit-transform: translateY(-5px);
+		       transform: translateY(-5px);
+		    } 
+		    50%
+		    {
+		        -webkit-transform: translateX(-15px);
+		        transform: translateX(-15px);
+		    }
+		    65%
+		    {
+		        -webkit-transform: translateY(35px);
+		        transform: translateY(35px);
+		    }
+		    80%
+		    {
+		        -webkit-transform: translateX(30px);
+		        transform: translateX(30px);
+		    }
+		    100%
+		    {
+		        -webkit-transform: translateX(0);
+		        transform: translateX(0);
+		        -webkit-transform: translateY(0);
+		        transform: translateY(0);
+		    }
+		}
+		.swing:hover{
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        background-image: url(https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2014%2F08%2Fshake-it-off.jpg&q=85);
+        background-size:cover;
+		}
+		.border:hover{
+        box-shadow: inset 0 0 0 25px orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="fade_in"><p id = "fade_in">Now you can't see me...</p></div>
+	<div class="color"><p>I like it red!</p></div>
+	<div class="grow"><p class = "disappear">One pill makes you larger...</p></div>
+	<div class="shrink"><p class = "disappear">...and the other one makes you small.</p></div>
+	<div class="rotate"><p>Wheeee!</p></div>
+	<div class="threed"><p>Check out my posh shadow!</p></div>
+	<div class="swing"><p class="disappear">Shake it off!</p></div>
+	<div class="border"><p>Build up that wall, Mr. Gorbachev!</p></div>
+	<div class="circle"><p>Aight, let's round it up.</p></div>
+</body>
+</html>
