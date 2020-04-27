@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'l1 r1 r1 r1'
+    'l2 r2 r2 r2'
+    'l3 r3 r3 r3'
+    'b b b b';
+  grid-gap: 6%;
+  padding: 4%;
+}
+
+.grid-container > div {
+  text-align: center;
+  height: 100px;
+  border: solid black 1px;
+}
+#r1{
+	grid-area: r1; 
+	background-color: rgba(0,0,255,0.5)
+}
+#r2{
+	grid-area: r2;
+	background-color: rgba(0,0,255,0.5) 
+}
+#r3{
+	grid-area: r3;
+	background-color: rgba(0,0,255,0.5) 
+}
+#l1{
+	grid-area: l1;
+	background-color: rgba(255,0,0,0.5) 
+}
+#l2{
+	grid-area: l2; 
+	background-color: rgba(255,0,0,0.5)
+}
+#l3{
+	grid-area: l3; 
+	background-color: rgba(255,0,0,0.5)
+}
+#b{
+	grid-area: b;
+	background-color: rgba(255,255,200,0.99)
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div id="l1"></div>  
+  <div id="r1"></div>
+  <div id="l2"></div>  
+  <div id="r2"></div>
+  <div id="l3"></div>
+  <div id="r3"></div>
+  <div id="b"></div>
+</div>
+
+</body>
+</html>
