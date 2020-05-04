@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Page</title>
+
+</head>
+<body>
+	<p id = "address"></p>
+	<p id = "age"></p>
+	<p id="car"></p>
+
+	<script type="text/javascript">
+	let addressNumber = "5.";
+	let addressStreet = "Tziporah ";
+	let country	= "Israel, ";
+	let global_address = country + addressStreet + addressNumber;
+	document.getElementById("address").innerHTML = global_address;
+	
+	let myBirthyear = 1992;
+	let randomYear = 2025;
+	let age = randomYear - myBirthyear;
+	document.getElementById("age").innerHTML = "In the year of " + randomYear + ", I will be " + age +" years old.";
+
+	let petsArray = ['cat','dog','fish','rabbit','cow'];
+	petsArray[1];
+	petsArray = petsArray.splice(3, 1, "horse")
+	arrayLength = petsArray.length
+	console.log(arrayLength)
+
+	let driverAge = prompt("How old are you?")
+	if (driverAge < 18){
+		alert("Sorry, you are too young to drive this car. Powering off.")
+	} else if (driverAge == 18) {
+		alert("Congratulations on your first year of driving. Enjoy the ride!")
+	} else if (driverAge > 18) {
+		alert("Powering On. Enjoy the ride!")
+	} else if (driverAge.isNaN()) {
+		driverAge = prompt("How old are you?")
+	}
+	</script>
+</body>
+</html>

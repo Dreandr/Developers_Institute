@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Page</title>
+</head>
+<body>
+	<p id="array"></p>
+	<p id="var"></p>
+	<script type="text/javascript">
+		let me = ["my","favorite","color","is","blue"]
+		function mergeArray(array){
+			let text = "";
+			let i;
+			for (i in array){
+				text = text + array[i] + " "  
+			}
+			position = text.length - 1;
+			text = text.substring(0,position);
+			text += ".";
+			return text;
+		}
+		let string = mergeArray(me);
+		document.getElementById("array").innerHTML = string;
+
+		let var1 = "abc";
+		let var2 = "def";
+		let var3 = var2.substring(0,2) + var1.substring(2) + " " + var1.substring(0,2) + var2.substring(2);
+		document.getElementById("var").innerHTML = var3;
+
+		let num1 = prompt("Put in the first number!")
+		let num2 = prompt("Put in the second number!")
+		let action = prompt("What operation do you want to do? Type + to get a sum, - to get a difference, * to get a product and / to get the result of division!")
+		if (action == "+"){
+			alert(parseInt(num1,10) + parseInt(num2,10))
+		} else if (action == "-") {
+			alert(parseInt(num1,10) - parseInt(num2,10))
+		} else if (action == "*"){
+			alert(parseInt(num1,10) * parseInt(num2,10))
+		} else {
+			alert(parseInt(num1,10)/parseInt(num2,10))
+		}
+	</script>
+</body>
+</html>
