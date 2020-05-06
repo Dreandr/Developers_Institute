@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excercise_XP_objs_and_loops</title>
+</head>
+<body>
+	<script type="text/javascript">
+//Excerise 1
+		let colors = ["gray", "red", "black", "green", "yellow"]
+		for (let i in colors) {
+			switch(i){
+				case 0:
+					console.log('My {i+1}st choice is ${colors[i]}');
+					break;
+				case 1:
+					console.log('My {i+1}nd choice is ${colors[i]}');
+					break;
+				case 2:				
+					console.log('My {i+1}rd choice is ${colors[i]}');
+					break;
+				default:
+					console.log('My {i+1}th choice is ${colors[i]}');
+					break;
+			}
+		}
+		
+//Excercise 2
+		let number;
+		do {
+			number = prompt("Give me a number!");
+		} while (number < 10);
+
+// Excercise 3
+		var people = ["Greg", "Mary", "Devon", "James"];
+		for (let i of people){
+			console.log(i);
+		}
+		people.shift();
+		people[people.indexOf("James")] = "Jason";
+		people.push("Denis")
+		for (let i of people){
+			console.log(i);
+			if i == "Mary"{
+				break;
+			}
+		}
+		let people2 = people.slice(0,people.indexOf("Mary")) + people.slice((people.indexOf("Mary") + 1), people.indexOf('Denis'));
+		config.log(people.indexOf('Mary'));
+		config.log(people.indexOf('Foo'));
+		let last = people.pop()
+
+// Excercise 4
+		var age = [20,5,12,43,98,55];
+		let ageSum = age => age.reduce((a,b) => a + b, 0);
+		let ageEven = {};
+		for (i of age){
+			if i%2 == 0{
+				ageEven.push(i);
+			}
+		}
+		config.log(ageEven)
+		let ageMax = age => Math.max(...age);
+	</script>
+</body>
+</html>
