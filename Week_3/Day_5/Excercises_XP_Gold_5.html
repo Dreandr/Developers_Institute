@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excercises XP Gold, Ex 5</title>
+</head>
+<body>
+	<div id="list"></div>
+	<script type="text/javascript">
+		let array = [];
+		for (let c = 1; c < 11; c++){
+			if (c != 7){
+				array.push(c);
+			} else {
+				array.push("Seven");
+			}
+		}
+		function makeUL(array) {
+	    var list = document.createElement('ul');
+	    for (var i = 0; i < array.length; i++) {
+	        var item = document.createElement('li');
+	        item.appendChild(document.createTextNode(array[i]));
+	        list.appendChild(item);
+	    }
+	    return list;
+		}
+		document.getElementById("list").appendChild(makeUL(array));
+	</script>
+</body>
+</html>
