@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excercises XP</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		//Excercise 1
+		function checkDriverAge(age){
+			if (age < 18) {
+			return "Sorry you are too yound to drive this car. Powering off";
+			} else if (age > 18) {
+			return "Powering On. Enjoy the ride!";
+			} else if (age == 18) {
+			return "Congratulations on your first year of driving. Enjoy the ride!";
+			}
+		}
+		
+		//Excercise 2
+		amazonBasket = {
+		    glasses: 1,
+		    books: 2,
+		    floss: 100
+		}
+		function checkBasket(){
+			let item = prompt("What item are you looking for?");
+			for (i of Object.keys(amazonBasket)){
+				if (item == i) {
+					return `The item is in the basket. Quantity: ${amazonBasket[i]}`;
+				}
+			}
+			return `The item is not in the basket.`;
+		}
+		checkBasket()
+		
+		// Excercise 3
+		let shoppingList = ["banana", "orange", "apple"];
+		var stock = { 
+		    "banana": 6, 
+		    "apple": 0,
+		    "pear": 12,
+		    "orange": 32,
+		    "blueberry":1
+		}  
+
+		var prices = {    
+		    "banana": 4, 
+		    "apple": 2, 
+		    "pear": 1,
+		    "orange": 1.5, 
+		    "blueberry":10
+		} 
+		function myBill(){
+			let expenses = 0;
+			for (x of shoppingList){
+				for (i of Object.keys(stock)){
+					if (x == i && stock[i] != 0){
+						expenses += prices[i];
+						stock[i] -= 1;	
+					}
+				}
+			}
+			return expenses;
+		}
+		myBill()
+		
+		//Excercise 4
+		function hotelCost(nights){
+			return nights*140;
+		}
+		function planeRideCost(city){
+			let price = 0;
+			switch(city) = {
+				case "London": 
+					price = 183;
+					break;
+				case "Paris":
+					price = 220;
+					break;
+				default:
+					price = 300;
+					break;
+			}
+			return price;
+		}
+		function rentalCarCost(days){
+			return days * 40;
+		}
+	</script>
+</body>
+</html>
