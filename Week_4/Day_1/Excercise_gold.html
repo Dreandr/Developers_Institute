@@ -17,48 +17,48 @@
         }
         function playTheGame(){
             let gameOn = true; 
-            let answer = prompt("So you wanna play tha game, huh? Y/N");
+            let answer = prompt("So you wanna play the game, huh? Y/N");
             if (answer == "N"){
                 alert("No problem, goodbye!");
             } else {
                 let computerNumber;
                 while (gameOn == true){
-                let win = false;
-                computerNumber = Math.floor(Math.random() * 11);
-                for (let i = 1;i < 4;i++){
-                    let myNumber = prompt(`Give me a number between 0 and 10! You have ${4-i} attempts left.`);
-                    myNumber = parseInt(myNumber, 10)
-                    if (isNaN(myNumber) == true){
-                        alert("Sorry Not a number, Goodbye");
-                        break;
-                    } else if (myNumber > 10 || myNumber < 0){
-                        alert("Sorry it's not a good number,Goodbye");
-                        break;
-                    } else {
-                    result = test(myNumber,computerNumber);
-                    if (result == "higher"){
-                        alert("My number is lower!");
-                    } else if (result == "lower"){
-                        alert("My number is higher!");
-                    } else {
-                        alert("Correct. You win!");
-                        win = true;
-                        let answer = prompt("Another round? Y/N");
-                        if (answer == "N"){
-                            gameOn = false;
+                    let win = false;
+                    computerNumber = Math.floor(Math.random() * 11);
+                    for (let i = 1;i < 4;i++){
+                        let myNumber = prompt(`Give me a number between 0 and 10! You have ${4-i} attempts left.`);
+                        myNumber = parseInt(myNumber, 10)
+                        if (isNaN(myNumber) == true){
+                            alert("Sorry Not a number, Goodbye");
                             break;
-                    } break;
-                }
-            }  
-            } if (win != true){         
-            let answer2 = prompt(`You lose! My number was ${computerNumber}. Another round? Y/N`);
-            if (answer2 == "N"){
-                gameOn = false;
-                break;  
-            }}
+                        } else if (myNumber > 10 || myNumber < 0){
+                            alert("Sorry it's not a good number,Goodbye");
+                            break;
+                        } else {
+                        result = test(myNumber,computerNumber);
+                        if (result == "higher"){
+                            alert("My number is lower!");
+                        } else if (result == "lower"){
+                            alert("My number is higher!");
+                        } else {
+                            alert("Correct. You win!");
+                            win = true;
+                            let answer = prompt("Another round? Y/N");
+                            if (answer == "N"){
+                                gameOn = false;
+                                break;
+                        } break;
+                    }
+                }  
+                } if (win != true){         
+                let answer2 = prompt(`You lose! My number was ${computerNumber}. Another round? Y/N`);
+                if (answer2 == "N"){
+                    gameOn = false;
+                    break;  
+                }}
+            }
         }
     }
-}
     
     
     </script>

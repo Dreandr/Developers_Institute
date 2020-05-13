@@ -1,0 +1,28 @@
+<html>
+<body>
+  <div id="container">Users:</div>
+  <ul class="list">
+    <li>John</li>
+    <li>Pete</li>
+  </ul>
+  <ul class="list">
+    <li>Sarah</li>
+    <li>Dan</li>
+  </ul>
+  <script type="text/javascript">
+  	//div
+  	document.getElementsByTagName("div")[0]
+  	document.getElementById("container")
+  	//rendering uls one by one
+  	for (let elem of document.getElementsByTagName("ul")){
+  		config.log(elem)
+  	}
+  	 for (let elem of document.getElementsByClassName("list")){
+  		config.log(elem)
+  	}
+  	//first items of uls
+  	document.getElementsByTagName("ul").firstElementChild
+	document.querySelectorAll('li > li:first-child')  
+</script>
+</body>
+</html>
