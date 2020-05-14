@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="main.js" charset="utf-8"></script>
+    <style>
+      body{
+        font-size: 4em;
+        font-weight: bold;
+      }
+      button {
+        width:70px;
+        height:70px;
+      }
+      .num{
+        background-color: lightgrey;
+      }
+      .op{
+        background-color: rgba(23,145,42,0.5);
+      }
+      .bigbois{
+        background-color: rgba(124,86,156,0.5);
+        width: 156px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="output" readonly style="width: 320px"></textarea>
+    <br>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(1);">1</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(2);">2</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(3);">3</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(4);">4</button>
+    <br>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(5);">5</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(6);">6</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(7);">7</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(8);">8</button>
+    <br>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(9);">9</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f(0);">0</button>
+    <button type="button" name="button" class="num" onclick="javascript:my_f('.');">.</button>
+    <button type="button" name="button" class="op" onclick="javascript:my_f('+');">+</button>
+    <br>
+    <button type="button" name="button" class="op" onclick="javascript:my_f('-');">-</button>
+    <button type="button" name="button" class="op" onclick="javascript:my_f('/');">/</button>
+    <button type="button" name="button" class="op" onclick="javascript:my_f('*');">*</button>
+    <button type="button" name="button" class="op" onclick="javascript:my_f('=');">=</button>
+    <br>
+    <button type="button" name="button" class="bigbois" onclick="javascript:reset();">Reset</button>
+    <button type="button" name="button" class="bigbois" onclick="javascript:clear();">Clear</button>
+  </body>
+</html>
