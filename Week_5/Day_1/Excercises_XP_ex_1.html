@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<article>
+<h1> Some Facts </h1>
+<h2> The CHOCOLATE </h2>
+<p>Chocolate is made from tropical Theobroma cacao tree seeds. Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+<p> After the European discovery of the Americas, chocolate became very popular in the wider world, and its demand exploded. </p>
+<p>  Chocolate has since become a popular food product that millions enjoy every day, thanks to its unique, rich, and sweet taste.</p> 
+<p> But what effect does eating chocolate have on our health?</p> </article>
+<form>
+What is your name ?<input type="text" name="userName">
+What did you think of the article ?<input type="text" name="questionToUser">
+<input type="submit" name="submit">
+</form>
+
+<script type="text/javascript">
+	for (i of document.getElementsByTagName("p")){
+		i.setAttribute("class", "para_article")
+	}
+	
+	let elem = document.body.children[0].lastElementChild;
+	elem.parentNode.removeChild(elem);
+
+	let elem2 = document.getElementsByTagName("h2")[0];
+	elem2.addEventListener("click", disappear)
+	function disappear(){
+		this.parentNode.removeChild(this);
+	}
+
+	let elem3 = document.getElementsByTagName("h1")[0];
+	let size = Math.ceil(Math.random() * 100)
+	elem3.setAttribute("style", `font-size: ${size}px`);
+
+	elem3.addEventListener("click",hide);
+	function hide(){
+		this.style.display = "none";
+	}
+
+	let elem4 = document.getElementsByTagName("p")[1];
+    let op = 1; 
+    setInterval(function () {
+        elem4.style.opacity = op;
+        elem4.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 2000);
+
+    let table = document.createElement("table");
+    document.body.appendChild(table);
+    let form = document.forms[0];
+    form.addEventListener("submit", addFeedback);
+
+    function addFeedback(){
+    let Feedback = [document.getElementsByTagName("input")[0].value, document.getElementsByTagName("input")[1].value] 
+    let newRow = document.createElement("tr");
+    for (i of Feedback){
+    		let newCell = document.createElement("td");
+    		newCell.appendChild(document.createTextNode(i));
+			newRow.appendChild(newCell);
+    }table.appendChild(newRow);
+    }
+
+</script>
+</body>
+</html>

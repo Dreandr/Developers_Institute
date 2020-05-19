@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excercise 2</title>
+</head>
+<body>
+<p><strong>Hello</strong> I hope you are enjoying <strong>this</strong> class.At the
+<strong>end</strong> you <strong>will</strong> be great Developers!
+<strong>Enjoy</strong> the <strong>JavaScript </strong> lessons</p>
+<script type="text/javascript">
+	function getBold_items(){
+		let words = [];
+		for(i in document.getElementsByTagName("strong")){
+			words.push(document.getElementsByTagName("strong")[i].textContent)
+		}
+		for (let x = 0; x < 3; x++){
+			words.pop()
+		}
+		return words;
+	}
+	
+	elems = document.getElementsByTagName("strong");
+	for (elem of elems){
+	elem.addEventListener("mouseover", highlight);
+	elem.addEventListener("mouseout", return_normal);
+	}
+	function highlight(){
+		this.style.color = "blue";
+	}
+	function return_normal(){
+		this.style.color = "black";
+	}
+</script>
+</body>
+</html>

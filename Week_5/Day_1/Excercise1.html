@@ -1,0 +1,71 @@
+<html>
+<body> 
+
+<table id="sampleTable" border="1"> 
+<tr>
+    <td>Row1 cell1</td> 
+    <td>Row1 cell2</td>
+</tr> 
+<tr>
+    <td>Row2 cell1</td> 
+    <td>Row2 cell2</td>
+</tr> 
+</table>
+
+<input type="button" onclick="insert_Row()" value="Insert row">  
+<button id="jsstyle">Style</button>
+<div id ="div">
+    <button id="jsstyle1">Style1</button>
+</div>
+
+<script type="text/javascript">
+	function insert_Row(){
+		let newRow = document.createElement("tr");
+		for (let i = 0; i<2; i++){
+			let newCell = document.createElement("td");
+			newCell.appendChild(document.createTextNode(`Row${document.getElementById("sampleTable").rows.length+1} cell${i+1}`));
+			newRow.appendChild(newCell);
+		}
+		document.getElementById("sampleTable").appendChild(newRow);
+	}
+	var x = document.getElementById("jsstyle")
+	x.addEventListener("mouseover", RespondMouseOver); 
+	x.addEventListener("click", RespondClick);
+	function RespondMouseOver(){
+		this.innerHTML = "Come on, click me!"
+	};
+	function RespondClick(){
+		this.innerHTML = "Well done!"
+	} 
+	
+	let y = document.getElementById("div")
+	let button = document.getElementById("jsstyle1")
+	
+	y.addEventListener("click",YClickRespond)
+	y.addEventListener("mouseover",YMouseoverRespond)
+	button.addEventListener("click",ButtonClickRespond)
+	button.addEventListener("mouseover",ButtonMouseoverRespond)
+	
+	function YClickRespond(){
+		alert("You clicked on the div!")
+	}
+	function YMouseoverRespond(){
+		this.setAttribute("style", "border: solid 1px red");
+	}
+	function ButtonClickRespond(e){
+		alert("You clicked on the button!")
+		e.stopPropagation();
+	}
+	function ButtonMouseoverRespond(){
+		this.setAttribute("style", "color: red");
+	}
+	
+	let form = document.forms[0];
+	form.addEventListener("submit", SubmitResponse);
+
+	function SubmitResponse(e){
+		let color = 
+	}
+</script>
+</body>
+</html> 
