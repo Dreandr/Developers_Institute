@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daily Challenge, Week 5, Day 1</title>
+</head>
+<body>
+	<h1>I'm a headline!</h1>
+	<script type="text/javascript">
+		let elem = document.getElementsByTagName('h1')[0];
+		elem.addEventListener("click", clickResponse);
+		function clickResponse(){
+			elem.innerHTML = "Hey, don't click me!";
+		}
+		elem.addEventListener("mouseout", mouseoverResponse);
+		function mouseoverResponse(){
+			let jump = Math.random() * 400
+			let jump2 = Math.random() * 400
+			elem.setAttribute("style",`margin-top: ${jump}px; margin-left: ${jump2}px`);
+			elem.innerHTML = "Can't catch me!";
+		}
+		elem.addEventListener("mouseout", mouseoutResponse);
+		function mouseoutResponse(){
+			let colors = ["red", "green", "yellow", "orange", "blue", "lightgrey", "gold", "purple", "pink", "GreenYellow"];
+			let col = Math.round(Math.random() * 10)
+			elem.style.color = colors[col];
+		}
+	</script>
+</body>
+</html>
