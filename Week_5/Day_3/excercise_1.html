@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excercise 1</title>
+</head>
+<body>
+<script type="text/javascript">
+	function sayHi() {
+	let start = Date.now();
+	let banner = document.createElement("div");
+	banner.setAttribute("style", "background-color: orange;");
+	let text = document.createTextNode(`The sale ends in 10 seconds!`)
+	document.body.appendChild(banner);
+	let timer = setInterval(function() {
+        let timePassed = Date.now() - start;
+        banner.innerHTML = `The sale ends in ${10 - Math.round(timePassed/1000)} seconds!`;
+        if (timePassed > 10000) {
+          clearInterval(timer);
+        }
+      }, 20);
+	}
+
+	setTimeout(sayHi(5), 5000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Excercises XP, ex. 2</title>
+	<style type="text/css">
+		#dragbox{
+			background-color: lightblue;
+			position: absolute;
+			width: 50px;
+			height: 50px;
+		}
+		#targetbox{
+			background-color: orange;
+			width: 500px;
+			height: 500px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="dragbox" draggable="true" ondragstart="dragStart(event)"></div>
+	<br>
+	<div id="targetbox" ondrop="dragDrop(event)"  ondragover="allowDrop(event)"></div>
+	<script type="text/javascript">
+		
+		function allowDrop(event) {
+		  event.preventDefault(); 
+		}
+		function dragStart(event) {
+		event.dataTransfer.setData("text", event.target.id);
+		}
+		function dragDrop(event) {
+		event.preventDefault();
+		let data = event.dataTransfer.getData("text");		  
+		let box = document.getElementById(data)
+		event.target.appendChild(box);
+		}
+		
+		let elem = document.getElementById("dragbox")
+		let target = document.getElementById("targetbox")
+		elem.addEventListener("dragstart", dragStart)
+
+		target.addEventListener("dragover", dragOver)
+		target.addEventListener("drop", drop)
+		function dragOver(event){
+		  event.preventDefault();
+		}
+
+		function drop(event) {
+		  event.preventDefault();
+		  let dataSquare = event.dataTransfer.getData("text");
+		  let box = document.getElementById(dataSquare)
+		  event.target.appendChild(box);
+		}
+
+	</script>
+</body>
+</html>
