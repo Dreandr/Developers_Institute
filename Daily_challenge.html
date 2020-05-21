@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daily Challenge, Week 5, D 3</title>
+</head>
+<body>
+	<div>
+	  <label for="sample">Type something:</label>
+	  <input type="text" name="text" id="sample">
+	</div>
+	<script type="text/javascript">
+		let	input = document.querySelector('input');
+
+		input.addEventListener('keypress', logKey);
+
+		function logKey(e) {
+		if (e.code.indexOf("Key") == -1){
+		  alert("This is not a letter!");
+		  e.preventDefault();
+		}
+		}
+	</script>
+</body>
+</html>
