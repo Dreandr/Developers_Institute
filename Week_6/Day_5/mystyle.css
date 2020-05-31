@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'sega_logo_fontregular';
+    src: url('sega-webfont.woff2') format('woff2'),
+        url('sega-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+	background-image: url("https://image.freepik.com/free-vector/robots-pattern-design_1131-2.jpg");
+	background-repeat: repeat;
+}
+label{
+	font-family: "sega_logo_fontregular";
+	color: darkblue;
+	font-size: 2em;
+	-webkit-text-stroke-width: 2px;
+		-webkit-text-stroke-color: red;
+}
+img {
+  border-radius: 50%;
+  background-color: darkblue;
+}
+.topnav {
+	padding: 2% 4%;
+	border: solid gray 2px;
+	background-color: lightgreen;
+	background-image: url("https://pluspng.com/img-png/png-hd-gears-cogs-07-54-11-march-2017-600.png");
+}
+.searchbar {
+	font-size: 1.8em;
+	width: 75%;
+	border: solid black 1px;
+	background-color: lightblue;
+}
+.card{
+	font-size: 1.5em;
+	font-weight: bold;
+	border: solid black 2px;
+	border-radius: 10%;
+	display: inline-flex;
+	flex-direction: column;
+	padding: 5% 5%;
+	text-align: center;
+	margin: 5% 5%;
+	background-image: url("https://png.clipart.me/previews/428/light-blue-pattern-625.png");
+	background-size: cover;
+}
+#main_display{
+	display: grid;
+	grid-template-columns: 30% 30% 30%;
+	padding: 5% 5%;
+	grid-column-gap: 3%;
+	grid-row-gap: 3%;
+}
