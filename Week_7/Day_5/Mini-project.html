@@ -140,7 +140,7 @@
 				player_spaces.indexOf(val) != -1 ? counter += 1 : null;
 			})
 			if (counter == 3){
-				gameOver()
+				gameOver("player")
 			}
 		})
 		makeTurn();
@@ -214,10 +214,25 @@
 		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
 		</svg>`;
 		}
+		winCombos.forEach((arr) => {
+			let counter = 0;
+			arr.forEach((val) => {
+				ai_spaces.indexOf(val) != -1 ? counter += 1 : null;
+			})
+			if (counter == 3){
+				gameOver("AI")
+			}
+		})
 	}
 
-	function gameOver(){
-			alert("Game over! You win!")
+	function gameOver(winner){
+		winner == "player" ? alert("Game over! You win!") : alert("Game over! AI wins!");
+		for (child of gameBoard.children){
+			child.innerHTML = ""	
+		}
+		gameBoard.setAttribute("style", "visibility: hidden;");
+		selectorBox.setAttribute("style", "visibility: visible;");
+		
 	}
 
 	</script>
