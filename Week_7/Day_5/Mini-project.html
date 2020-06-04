@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic Tac Toe Game</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		.grid-item{
+			background-color: lightblue;
+			border: 3px black solid;
+			height: 100px;
+			text-align: center;
+			padding: 25% 5%; 
+		}
+		.grid-item:hover {
+			background-color: blue;
+			cursor: pointer;
+		}
+
+		#container {
+		  display: grid;
+		  grid-template-columns: 30% 30% 30%;
+		  margin: 3% 35%;
+		  visibility: hidden;
+		}
+
+		#circle:hover{
+			cursor: pointer;
+		}
+		#X:hover{
+			cursor: pointer;
+		}
+		#zero{
+			border-top: none;
+			border-left: none;
+		}
+		#one{
+			border-top: none;
+		}
+		#two{
+			border-top: none;
+			border-right: none;
+		}
+		#three{
+			border-left: none;
+		}
+		#five{
+			border-right: none;
+		}
+		#six{
+			border-bottom: none;
+			border-left: none;
+		}
+		#seven{
+			border-bottom: none;
+		}
+		#eight{
+			border-bottom: none;
+			border-right: none;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="text-align: center;">Tic Tac Toe Game</h1>
+	<div style="text-align: center; font-size: 1em;" id="selectorBox">Choose what you want to play with: <br>
+		<svg class="bi bi-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
+		  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+		</svg> 
+		<svg class="bi bi-x" width="4.5em" height="4.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
+		  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+		</svg>
+	</div>
+	<div id="container">
+		<div class="grid-item" id="zero"></div>
+		<div class="grid-item" id="one"></div>
+		<div class="grid-item" id="two"></div>
+		<div class="grid-item" id="three"></div>
+		<div class="grid-item" id="four"></div>
+		<div class="grid-item" id="five"></div>
+		<div class="grid-item" id="six"></div>
+		<div class="grid-item" id="seven"></div>
+		<div class="grid-item" id="eight"></div>
+	</div>
+	<script type="text/javascript">
+	let circle = document.getElementById("circle");
+	let x = document.getElementById("X");
+	let selectorBox = document.getElementById("selectorBox");
+	let gameBoard = document.getElementById("container");
+	let player;
+	let player_spaces = [];
+	let ai_spaces = [];
+	const winCombos = [
+               [0, 4, 8],
+               [6, 4, 2],
+               [3, 4, 5],
+               [1, 4, 7],
+               [0, 1, 2],
+               [6, 7, 8],
+               [0, 3, 6],
+               [2, 5, 8]
+	]
+	let combos = [];
+
+	function startGame(playerElement) {
+		player = playerElement;
+		player_spaces = [];
+		ai_spaces = [];
+		combos = [
+               [0, 4, 8],
+               [6, 4, 2],
+               [3, 4, 5],
+               [1, 4, 7],
+               [0, 1, 2],
+               [6, 7, 8],
+               [0, 3, 6],
+               [2, 5, 8],
+		]
+		selectorBox.setAttribute("style", "visibility: hidden;");
+		gameBoard.setAttribute("style", "visibility: visible;");
+		for (i of [0,1,2,3,4,5,6,7,8]) {
+			gameBoard.children[i].addEventListener("click", createElement)
+		}
+	}
+	
+	function createElement(){
+		if (player != "X") { 
+			this.innerHTML = `<svg class="bi bi-circle" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
+		  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+		</svg>`; 
+		} else {
+		 this.innerHTML = `<svg class="bi bi-x" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
+		  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+		</svg>`;
+		}
+		player_spaces.push(Array.prototype.indexOf.call(gameBoard.children, this))
+		winCombos.forEach((arr) => {
+			let counter = 0;
+			arr.forEach((val) => {
+				player_spaces.indexOf(val) != -1 ? counter += 1 : null;
+			})
+			if (counter == 3){
+				gameOver()
+			}
+		})
+		makeTurn();
+	}
+
+	function makeTurn(){
+		console.log("making turn")
+		let counters = [];
+		combos.forEach((arr) => {
+				combos.forEach((arr) => {
+					let counter = 0;
+                    arr.forEach((val) => {
+                    	if (player_spaces.indexOf(val) != -1) {
+                    		counter += 1}
+                    });
+                    counters.push(counter)})	
+		})
+		let max = Math.max(...counters);
+		console.log(combos[counters.indexOf(max)]);
+		let target;
+		combos[counters.indexOf(max)].forEach((val) =>{
+			if ([0,2,6,8,4].indexOf(val) != -1 && player_spaces.indexOf(val) == -1 && ai_spaces.indexOf(val) == -1){
+				target = val;
+			}
+		})
+		console.log(target);
+		if (target === undefined) {
+			combos[counters.indexOf(max)].forEach((val) =>{
+			if (player_spaces.indexOf(val) == -1 && ai_spaces.indexOf(val) == -1){
+				target = val;
+			}	
+			})
+		}
+		if (target === undefined) {
+			let counters2 = [];
+			combos.forEach((arr) => {
+				let counter = 0;
+                arr.forEach((val) => {
+                	if (ai_spaces.indexOf(val) != -1) {
+                		counter += 1}
+                });
+                counters2.push(counter)}
+            )
+            console.log(counters2)
+            console.log(combos[counters2.indexOf(Math.max(...counters2))])
+			let max = Math.max(...counters2);
+			let indices = [];
+			for (let i of counters2){
+				if (i == max){
+					indices.push(counters2.indexOf(i))
+				}
+			}
+			for (let i of indices){
+				combos[counters2[i]].forEach((val) =>{
+				console.log(val)		
+				if (player_spaces.indexOf(val) == -1 && ai_spaces.indexOf(val) == -1){
+					target = val;
+				}	
+			})
+		}
+		}
+	ai_spaces.push(target)
+	console.log(target)
+	if (player == "X") { 
+		gameBoard.children[target].innerHTML = `<svg class="bi bi-circle" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
+		  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+		</svg>`; 
+		} else {
+		gameBoard.children[target].innerHTML = `<svg class="bi bi-x" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
+		  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+		</svg>`;
+		}
+	}
+
+	function gameOver(){
+			alert("Game over! You win!")
+	}
+
+	</script>
+</body>
+</html>
