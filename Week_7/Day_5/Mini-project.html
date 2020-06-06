@@ -12,7 +12,6 @@
 			border: 3px black solid;
 			height: 100px;
 			text-align: center;
-			padding: 25% 5%; 
 		}
 		.grid-item:hover {
 			background-color: blue;
@@ -68,10 +67,10 @@
 <body>
 	<h1 style="text-align: center;">Tic Tac Toe Game</h1>
 	<div id="selectorBox">Choose what you want to play with: <br>
-		<svg class="bi bi-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
+		<svg class="bi bi-circle" width="3em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
 		  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 		</svg> 
-		<svg class="bi bi-x" width="4.5em" height="4.5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
+		<svg class="bi bi-x" width="5em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
 		  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
 		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
 		</svg>
@@ -130,14 +129,17 @@
 	
 	function createElement(){
 		if (player != "X") { 
-			this.innerHTML = `<svg class="bi bi-circle" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
+			this.innerHTML = `<svg class="bi bi-circle" width="3em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
 		  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 		</svg>`; 
+			this.style.padding = "5% 5%";
 		} else {
-		 this.innerHTML = `<svg class="bi bi-x" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
+		 this.innerHTML = `<svg class="bi bi-x" width="4.5em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
 		  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
 		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
 		</svg>`;
+			this.style.padding = "7% 5%";
+
 		}
 		player_spaces.push(Array.prototype.indexOf.call(gameBoard.children, this))
 		gameOn = true 
@@ -245,14 +247,16 @@
 	ai_spaces.push(target)
 	console.log(ai_spaces)
 	if (player == "X") { 
-		gameBoard.children[target].innerHTML = `<svg class="bi bi-circle" width="3em" height="3em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
+		gameBoard.children[target].innerHTML = `<svg class="bi bi-circle" width="3em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="circle"  onclick="startGame('circle')">
 		  <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-		</svg>`; 
+		</svg>`;
+		gameBoard.children[target].style.padding = "5% 5%"; 
 		} else {
-		gameBoard.children[target].innerHTML = `<svg class="bi bi-x" width="4em" height="4em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
+		gameBoard.children[target].innerHTML = `<svg class="bi bi-x" width="4.5em" height="5em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="X" onclick="startGame('X')">
 		  <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
 		  <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
 		</svg>`;
+		gameBoard.children[target].style.padding = "7% 5%"; 
 		}
 	}	
 	}
