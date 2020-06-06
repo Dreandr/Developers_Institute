@@ -1,0 +1,58 @@
+body {
+	background-color: lightgreen;
+}
+.grid-item{
+	background-color: lightblue;
+	border: 3px black solid;
+	height: 100px;
+	text-align: center;
+}
+.grid-item:hover {
+	background-color: blue;
+	cursor: pointer;
+}
+#selectorBox {
+	text-align: center; 
+	font-size: 1em;
+}
+#container {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  margin: 3% 35%;
+  visibility: hidden;
+}
+
+#circle:hover{
+	cursor: pointer;
+}
+#X:hover{
+	cursor: pointer;
+}
+#zero{
+	border-top: none;
+	border-left: none;
+}
+#one{
+	border-top: none;
+}
+#two{
+	border-top: none;
+	border-right: none;
+}
+#three{
+	border-left: none;
+}
+#five{
+	border-right: none;
+}
+#six{
+	border-bottom: none;
+	border-left: none;
+}
+#seven{
+	border-bottom: none;
+}
+#eight{
+	border-bottom: none;
+	border-right: none;
+}
