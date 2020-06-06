@@ -1,5 +1,3 @@
-let circle = document.getElementById("circle");
-let x = document.getElementById("X");
 let selectorBox = document.getElementById("selectorBox");
 let gameBoard = document.getElementById("container");
 let player;
@@ -15,22 +13,11 @@ const winCombos = [
            [0, 3, 6],
            [2, 5, 8]
 ]
-let combos;
 
 function startGame(playerElement) {
 	player = playerElement;
 	player_spaces = [];
 	ai_spaces = [];
-	combos = [
-           [0, 4, 8],
-           [6, 4, 2],
-           [3, 4, 5],
-           [1, 4, 7],
-           [0, 1, 2],
-           [6, 7, 8],
-           [0, 3, 6],
-           [2, 5, 8],
-	]
 	selectorBox.setAttribute("style", "visibility: hidden;");
 	gameBoard.setAttribute("style", "visibility: visible;");
 	for (i of [0,1,2,3,4,5,6,7,8]) {
@@ -92,9 +79,8 @@ function createElement(){
 }
 
 function makeTurn(){
-	console.log("making turn")
 	let counters = [];
-	combos.forEach((arr) => {
+	winCombos.forEach((arr) => {
 				let counter = 0;
                 arr.forEach((val) => {
                 	if (player_spaces.indexOf(val) != -1) {
@@ -105,11 +91,10 @@ function makeTurn(){
                 counters.push(counter)	
 	})
 	let max = Math.max(...counters);
-	console.log(combos[counters.indexOf(max)]);
 	let target;
 	if (target == undefined) {
 		let counters2 = [];
-		combos.forEach((arr) => {
+		winCombos.forEach((arr) => {
 			let counter = 0;
             arr.forEach((val) => {
             	if (ai_spaces.indexOf(val) != -1) {
@@ -119,10 +104,9 @@ function makeTurn(){
             });
             counters2.push(counter) 
         })
-        console.log(`${counters2} -- counters2`)
         if (counters2.indexOf(2) != -1) { 
-        console.log(combos[counters2.indexOf(Math.max(...counters2))])
-		for (let i of combos[counters2.indexOf(2)]){
+        console.log(winCombos[counters2.indexOf(Math.max(...counters2))])
+		for (let i of winCombos[counters2.indexOf(2)]){
 			if (ai_spaces.indexOf(i) == -1){
 				target = i;
 			}
@@ -133,15 +117,14 @@ function makeTurn(){
 		target = 4;
 	}
 	if (target == undefined){
-	combos[counters.indexOf(max)].forEach((val) =>{
+	winCombos[counters.indexOf(max)].forEach((val) =>{
 		if ([0,2,6,8].indexOf(val) != -1 && player_spaces.indexOf(val) == -1 && ai_spaces.indexOf(val) == -1){
 			target = val;
 		}
 	})
 	}
-	console.log(target);
 	if (target === undefined) {
-		combos[counters.indexOf(max)].forEach((val) =>{
+		winCombos[counters.indexOf(max)].forEach((val) =>{
 		if (player_spaces.indexOf(val) == -1 && ai_spaces.indexOf(val) == -1){
 			target = val;
 		}	
