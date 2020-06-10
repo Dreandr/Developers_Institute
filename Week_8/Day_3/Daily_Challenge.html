@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="Content-Security-Policy"
+      content="default-src: http: https: 'self'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Giphy API Demo</title>
+    <style>
+      img {
+        width: 20%;
+        max-width: 20%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form>
+        <label for="search">Search</label>
+        <input id="search" type="search" />
+        <button id="btnSearch">Search</button>
+      </form>
+      <div id="out"></div>
+      <br>
+      <button id="btnDelete">Delete</button>
+    </main>
+    <script>
+      let APIKEY = "s4lkygRk0td7FVjRzgQsajGfusjiwa3R";
+      document.addEventListener("DOMContentLoaded", init);
+      let out = document.getElementById("out");
+      function init() {
+        document.getElementById("btnSearch").addEventListener("click", ev => {
+          ev.preventDefault(); 
+          let url = `https://api.giphy.com/v1/gifs/search?api_key=${APIKEY}&limit=1&q=`;
+          let str = document.getElementById("search").value.trim();
+          url = url.concat(str);
+          fetch(url)
+            .then(response => response.json())
+            .then(content => {
+              let fig = document.createElement("figure");
+              let img = document.createElement("img");
+              img.src = content.data[0].images.downsized.url;
+              img.alt = content.data[0].title;
+              fig.appendChild(img);
+              out.appendChild(fig);
+              document.querySelector("#search").value = "";
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      }
+      let clearButton = document.getElementById("btnDelete");
+      clearButton.addEventListener("click", clearPage);
+      function clearPage(){
+        do {
+        for (child of out.children){
+          child.parentNode.removeChild(child)
+        }
+      } while (out.children.length != 0)
+      }
+    </script>
+  </body>
+</html>
