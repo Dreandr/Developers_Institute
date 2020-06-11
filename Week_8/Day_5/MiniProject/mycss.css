@@ -1,0 +1,27 @@
+body{
+	background-image: url("https://media.giphy.com/media/xVn3ZmKrKIOLS/giphy.gif");
+}
+#container{
+	position: relative;
+	left: 35%;
+	margin-top: 5%;
+}
+#output {
+	color: white;
+	justify-content: center;
+	padding-top: 1%;
+	width: 30%;
+	height: 225px;
+	border: solid yellow 3px;
+	border-radius: 5%;
+	text-align: center;
+}
+#findPerson{
+	outline-color: black;
+	border-color: yellow;
+	border-width: 2px;
+	margin-top: 1%;
+	margin-left: 12%;
+	padding: 4px 4px;
+	border-radius: 5%;
+}
