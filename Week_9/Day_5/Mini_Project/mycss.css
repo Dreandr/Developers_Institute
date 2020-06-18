@@ -1,0 +1,56 @@
+body{
+	background-image: url("https://raw.githubusercontent.com/devtlv/studentsGitHub/master/JS/Week%205/Day%205/Mini%20Projects/Mini-Project%202%20-%20Pokedex%20API/pokedex.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+#container {
+  display: grid;
+  grid-template-areas:
+    'logo outputone guide'
+    'choicebuttons outputtwo randombutton'
+    ;
+  column-gap: 25%;
+  column-width: 30% 30% 30%;
+  padding: 8% 2%;
+  grid-row-gap: 44%;
+}
+#findPokemon {
+	border-radius: 50%;
+	padding: 34px;
+	text-align: center;
+	background-color: transparent; 
+	cursor: pointer;
+	border: solid black 2px;
+	outline: 0;
+}
+#output_img{
+	padding: 15% 5%;
+}
+.randombutton {
+	grid-area: randombutton;
+	margin-top: 24.45%;
+	margin-left: 66.41%;
+    position: fixed;
+    border: none;
+    outline: 0;
+}
+.choicebuttons {
+	grid-area: choicebuttons;
+	margin-top: 25.6%;
+	margin-left: 27.8%;
+    position: fixed;
+    border: none;
+    outline: 0;
+}
+.button_choicebuttons{
+	border: black solid 3px;
+	padding: 10px 22.5px;
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+}
+.logo { grid-area: logo; }
+.output1 { grid-area: outputone; }
+.guide { grid-area: guide; }
+.output2 { grid-area: outputtwo; }
