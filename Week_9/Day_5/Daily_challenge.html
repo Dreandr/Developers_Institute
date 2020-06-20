@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currency converter</title>
+</head>
+<body>
+	<script type="text/javascript">
+		async function getAPI(link) 
+		{
+		  let response = await fetch(link);
+		  let data = await response.json();
+		  return data;
+		}
+		let link1 = `http://www.apilayer.net/api/list?access_key=075d15d60a95b06528ad8d5812e3d35e`;
+		let link2 = 'http://www.apilayer.net/api/live?access_key=075d15d60a95b06528ad8d5812e3d35e&format=1';
+		
+		let list1 = getAPI(`http://www.apilayer.net/api/list?access_key=075d15d60a95b06528ad8d5812e3d35e`)
+  		.then(data => {
+  			createDropdown(Object.entries(data.currencies), "fromCurrency", "Choose the currency to convert from: ");
+  		});
+
+  		let list2 = getAPI(`http://www.apilayer.net/api/list?access_key=075d15d60a95b06528ad8d5812e3d35e`)
+  		.then(data => {
+  			createDropdown(Object.entries(data.currencies), "toCurrency", "Choose the currency to convert into: ")
+  		});
+  		// .catch(err => console.log("Failed to fetch API!"))
+
+  		function createDropdown(arr, id, label_text){
+  			let select = document.createElement("select");
+  			select.id = id
+
+  			arr.forEach((val) => {
+  				let option = document.createElement("option");
+  				option.value = val[0];
+  				option.innerHTML = val[1]
+  				select.appendChild(option);
+  			})
+  			let label = document.createElement("label");
+			label.innerHTML = label_text;
+			label.htmlFor = id;
+			let br = document.createElement("br");
+			document.body.appendChild(select);
+			document.body.insertBefore(label, select);
+  		}
+
+  		let sum = document.createElement("input");
+  		sum.id = "sum";
+  		let label = document.createElement("label");
+		label.innerHTML = " Sum to convert: ";
+		label.htmlFor = "sum";
+		document.body.appendChild(sum);
+		document.body.insertBefore(label, sum);
+
+		sum.addEventListener("keydown", function calculateResult(event){
+			 if (event.key === "Enter"){
+			 	if (document.body.children.length < 9){
+				let quotes = getAPI(`http://www.apilayer.net/api/live?access_key=075d15d60a95b06528ad8d5812e3d35e&format=1`)
+				.then(data =>{
+					let intermed = parseInt(sum.value, 10)/data.quotes["USD"+document.getElementById("fromCurrency").value];
+					let result = intermed*data.quotes["USD"+document.getElementById("toCurrency").value];
+					document.body.appendChild(document.createElement("br"));
+					let output = document.createElement("textarea");
+					output.readOnly = true;
+					output.innerHTML = result;
+					document.body.appendChild(output);
+				})
+			} else {
+				let quotes = getAPI(`http://www.apilayer.net/api/live?access_key=075d15d60a95b06528ad8d5812e3d35e&format=1`)
+				.then(data =>{
+					let intermed = parseInt(sum.value, 10)/data.quotes["USD"+document.getElementById("fromCurrency").value];
+					let result = intermed*data.quotes["USD"+document.getElementById("toCurrency").value];
+					document.body.children[8].innerHTML = result;
+				})
+			}
+		}		
+		})
+	</script>
+</body>
+</html>

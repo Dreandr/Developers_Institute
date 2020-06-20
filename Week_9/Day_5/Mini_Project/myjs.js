@@ -10,7 +10,7 @@ button.onclick = function(){
 	if (audio.paused){
 		audio.play();
 	}
-    number = Math.floor(Math.random() * 500);
+    number = Math.floor(Math.random() * 800);
     findPokemon(number);
 }
 
